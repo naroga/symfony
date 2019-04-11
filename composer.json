@@ -1,5 +1,5 @@
 {
-    "name": "symfony/symfony",
+    "name": "naroga/symfony",
     "type": "library",
     "description": "The Symfony PHP framework",
     "keywords": ["framework"],
