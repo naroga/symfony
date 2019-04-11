@@ -49,14 +49,6 @@ class FilesystemLoader implements LoaderInterface
      */
     public function isFresh(TemplateReferenceInterface $template, $time)
     {
-        if (false === $storage = $this->load($template)) {
-            return false;
-        }
-
-        if (!is_readable((string) $storage)) {
-            return false;
-        }
-
-        return filemtime((string) $storage) < $time;
+        return true;
     }
 }

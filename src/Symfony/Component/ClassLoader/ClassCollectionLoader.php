@@ -67,30 +67,6 @@ class ClassCollectionLoader
 
         // auto-reload
         $reload = false;
-        if ($autoReload) {
-            $metadata = $cache.'.meta';
-            if (!is_file($metadata) || !is_file($cache)) {
-                $reload = true;
-            } else {
-                $time = filemtime($cache);
-                $meta = unserialize(file_get_contents($metadata));
-
-                sort($meta[1]);
-                sort($classes);
-
-                if ($meta[1] != $classes) {
-                    $reload = true;
-                } else {
-                    foreach ($meta[0] as $resource) {
-                        if (!is_file($resource) || filemtime($resource) > $time) {
-                            $reload = true;
-
-                            break;
-                        }
-                    }
-                }
-            }
-        }
 
         if (!$reload && file_exists($cache)) {
             require_once $cache;
